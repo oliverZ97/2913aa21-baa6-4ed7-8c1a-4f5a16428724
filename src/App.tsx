@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './styles/style.scss';
+import { Event } from './util/types';
+import EventCard from './components/EventCard';
 
 function App() {
+  const [eventData, setEventData] = useState<Event[]>([]);
+
+  useEffect(() => {
+    getEvents();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const getEvents = () => {
+    fetch('https://tlv-events-app.herokuapp.com/events/uk/london')
+    .then((response) => response.json())
+    .then((data) => {
+      setEventData(data);
+      console.log(eventData);
+    });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {eventData && 
+      eventData.map((eventItem) => {
+        return (<EventCard key={eventItem._id} item={eventItem}/>)
+      })
+      }
     </div>
   );
 }

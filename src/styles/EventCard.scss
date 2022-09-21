@@ -1,0 +1,24 @@
+@use 'variables';
+
+.eventCard {
+    width: 20%;
+    margin-top: variables.$m-lg;
+    margin-bottom: variables.$m-lg;
+    background-color: variables.$secondary-color;
+
+    img {
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+    .titleContainer {
+        padding-left: variables.$m-lg;
+        padding-right: variables.$m-lg;
+        .title {
+            font-size: variables.$text-lg;
+        }
+    }
+
+
+
+}
