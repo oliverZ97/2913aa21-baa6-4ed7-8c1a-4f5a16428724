@@ -1,24 +1,56 @@
 @use 'variables';
 
 .eventCard {
-    width: 20%;
+    width: 100%;
     margin-top: variables.$m-lg;
     margin-bottom: variables.$m-lg;
-    background-color: variables.$secondary-color;
+    padding-bottom: variables.$m-xs;
+    background-color: variables.$light-color;
+    border-radius: variables.$m-sm;
+    height: 400px;
+    position: relative;
 
     img {
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
+        height: 300px;
+        border-top-left-radius: variables.$m-sm;
+        border-top-right-radius: variables.$m-sm;
     }
     .titleContainer {
-        padding-left: variables.$m-lg;
-        padding-right: variables.$m-lg;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: variables.$light-color;
+        opacity: 0.5;
+        padding-left: variables.$m-md;
+        padding-right: variables.$m-md;
+        border-top-left-radius: variables.$m-sm;
+        border-top-right-radius: variables.$m-sm;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
         .title {
             font-size: variables.$text-lg;
+        }
+    }
+    .infoContainer {
+        padding-left: variables.$m-md;
+        padding-right: variables.$m-md;
+
+        .location {
+            font-weight: bold;
         }
     }
 
 
 
+}
+
+.headerBar {
+    background-color: variables.$primary-color;
+    padding: variables.$m-md;
 }

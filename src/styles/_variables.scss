@@ -4,16 +4,19 @@ $primary-color: #2A9D8F;
 $secondary-color: #E9C46A;
 $tertiary-color: #F4A261;
 $highlight-color: #E76F51;
-$text-light: #DEE2E6;
-$text-dark: #343A40;
+$light-color: #DEE2E6;
+$dark-color: #343A40;
+$text-light: $light-color;
+$text-dark: $dark-color;
 
 //fonts
 $basic-font: Helvetica, sans-serif;
 
 //sizes
-$m-sm: 4px;
-$m-md: 8px;
-$m-lg: 16px;
+$m-xs: 4px;
+$m-sm: 8px;
+$m-md: 16px;
+$m-lg: 32px;
 $text-sm: 12px;
 $text-md: 16px;
 $text-lg: 20px;

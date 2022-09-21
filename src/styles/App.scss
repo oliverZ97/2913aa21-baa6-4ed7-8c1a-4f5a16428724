@@ -1,0 +1,18 @@
+@use 'variables';
+
+.eventContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: variables.$m-lg;
+    padding-right: variables.$m-lg;
+    margin-left: auto;
+    margin-right: auto;
+
+    .eventCardWrapper {
+        width: 20%;
+        margin-left: variables.$m-md;
+        margin-right: variables.$m-md;
+    }
+}
