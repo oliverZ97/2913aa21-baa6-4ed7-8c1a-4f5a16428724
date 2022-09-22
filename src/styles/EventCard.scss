@@ -5,10 +5,13 @@
     margin-top: variables.$m-lg;
     margin-bottom: variables.$m-lg;
     padding-bottom: variables.$m-xs;
-    background-color: variables.$light-color;
+    background-color: variables.$background-color;
     border-radius: variables.$m-sm;
     height: 400px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    
 
     img {
         width: 100%;
@@ -23,7 +26,7 @@
         left: 0;
         right: 0;
         background-color: variables.$light-color;
-        opacity: 0.5;
+        opacity: 0.4;
         padding-left: variables.$m-md;
         padding-right: variables.$m-md;
         border-top-left-radius: variables.$m-sm;
@@ -40,6 +43,12 @@
     .infoContainer {
         padding-left: variables.$m-md;
         padding-right: variables.$m-md;
+        border: 2px solid variables.$primary-color;
+        border-bottom-left-radius: variables.$m-sm;
+        border-bottom-right-radius: variables.$m-sm;
+        color: variables.$text-light;
+        
+        flex-grow: 1;
 
         .location {
             font-weight: bold;
@@ -51,6 +60,7 @@
 }
 
 .headerBar {
-    background-color: variables.$primary-color;
+    background-color: variables.$background-color;
+    border-bottom: 4px solid variables.$primary-color;
     padding: variables.$m-md;
 }

@@ -4,5 +4,6 @@ body {
   background-color: variables.$background-color;
   font: 100% variables.$basic-font;
   font-size: variables.$text-sm;
-
+  overflow-x: hidden;
+  overflow-y: auto;
 }

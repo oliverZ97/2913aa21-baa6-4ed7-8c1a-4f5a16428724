@@ -2,6 +2,7 @@ import React from "react";
 import { Event } from "../util/types";
 import "../styles/EventCard.scss";
 import unknownImg from "../unknown.jpg";
+import { DateTime } from "luxon";
 
 function EventCard(props: { item: Event }) {
   return (
@@ -16,8 +17,20 @@ function EventCard(props: { item: Event }) {
 
       <div className="infoContainer">
         <p className="location">{props.item.venue.name}</p>
-        <p>{props.item.startTime}</p>
-        <p>{props.item.endTime}</p>
+        {props.item.startTime.isValid && (
+          <p>
+            {props.item.startTime
+              .setLocale("dt")
+              .toLocaleString(DateTime.DATETIME_SHORT)}
+          </p>
+        )}
+        {props.item.endTime.isValid && (
+          <p>
+            {props.item.endTime
+              .setLocale("dt")
+              .toLocaleString(DateTime.DATETIME_SHORT)}
+          </p>
+        )}
       </div>
     </div>
   );
