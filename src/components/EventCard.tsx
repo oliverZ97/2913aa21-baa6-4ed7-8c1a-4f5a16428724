@@ -3,6 +3,7 @@ import { Event } from "../util/types";
 import "../styles/EventCard.scss";
 import unknownImg from "../unknown.jpg";
 import { DateTime } from "luxon";
+import { FaMapMarkerAlt, FaRegClock } from "react-icons/fa";
 
 function EventCard(props: { item: Event }) {
   return (
@@ -21,22 +22,27 @@ function EventCard(props: { item: Event }) {
           href={props.item.venue.direction}
           rel="noreferrer"
         >
+          <FaMapMarkerAlt></FaMapMarkerAlt>
           <p className="location">{props.item.venue.name}</p>
         </a>
-        {props.item.startTime.isValid && (
-          <p>
-            {props.item.startTime
-              .setLocale("dt")
-              .toLocaleString(DateTime.DATETIME_SHORT)}
-          </p>
-        )}
-        {props.item.endTime.isValid && (
-          <p>
-            {props.item.endTime
-              .setLocale("dt")
-              .toLocaleString(DateTime.DATETIME_SHORT)}
-          </p>
-        )}
+        <div className="time">
+          <FaRegClock className="timeIcon"></FaRegClock>
+          {props.item.startTime.isValid && (
+            <p>
+              {props.item.startTime
+                .setLocale("dt")
+                .toLocaleString(DateTime.DATETIME_SHORT)}
+            </p>
+          )}
+          <span> - </span>
+          {props.item.endTime.isValid && (
+            <p>
+              {props.item.endTime
+                .setLocale("dt")
+                .toLocaleString(DateTime.DATETIME_SHORT)}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

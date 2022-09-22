@@ -68,8 +68,8 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.7px);
     -webkit-backdrop-filter: blur(4.7px);
-    padding-left: variables.$m-sm;
-    padding-right: variables.$m-sm;
+
+    padding: variables.$m-sm;
     color: variables.$text-dark;
     -webkit-transition: background 0.5s ease-out;
     -moz-transition: background 0.5s ease-out;
@@ -84,16 +84,27 @@
       cursor: pointer;
       color: variables.$text-dark;
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
 
     .location {
       font-weight: bold;
+      padding-left: variables.$m-xs;
+    }
+
+    .timeIcon {
+      padding-right: variables.$m-xs;
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      margin-top: variables.$m-xs;
+      margin-bottom: variables.$m-xs;
     }
   }
-}
-
-.headerBar {
-  background-color: variables.$background-color;
-  border-bottom: 4px solid variables.$primary-color;
-  padding: variables.$m-md;
 }

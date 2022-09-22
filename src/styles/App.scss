@@ -62,3 +62,9 @@
     margin-right: variables.$m-md;
   }
 }
+
+.headerBar {
+  background-color: variables.$background-color;
+  border-bottom: 4px solid variables.$primary-color;
+  padding: variables.$m-md;
+}
