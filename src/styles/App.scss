@@ -1,65 +1,64 @@
-@use 'variables';
-
-
+@use "variables";
 
 .circle-lg {
-    background:  variables.$primary-color;
-    clip-path: circle(50%);
-    height: 40em;
-    width: 40em;
-    position: absolute;
-    right: -70px;
-    top: -80px;
-    z-index: 10;
-    
-  }
+  background: variables.$primary-color;
+  clip-path: circle(50%);
+  height: 40em;
+  width: 40em;
+  position: absolute;
+  right: -70px;
+  top: -80px;
+  z-index: 10;
+}
 
-  .circle-md {
-    background: variables.$primary-color;
-    clip-path: circle(50%);
-    height: 20em;
-    width: 20em;
-    position: absolute;
-    right: 300px;
-    top: 170px;
-    z-index: 10;
-    
-  }
-  
-  
-  
+.circle-md {
+  background: variables.$primary-color;
+  clip-path: circle(50%);
+  height: 20em;
+  width: 20em;
+  position: absolute;
+  right: 300px;
+  top: 170px;
+  z-index: 10;
+}
 
 .eventContainer {
+  display: flex;
+  flex-direction: column;
+
+  .groupContainer {
     display: flex;
     flex-direction: column;
 
-
-
-    .groupContainer {
-        display: flex;
-        flex-direction: column;
-
-        .groupContainerHeader {
-            background: rgb(38,70,83);
-            background: linear-gradient(292deg, rgba(38,70,83,1) 0%, rgba(38,83,73,1) 67%, rgba(42,157,143,1) 100%); 
-            opacity: 0.8;
-            font-size: variables.$text-lg;
-            padding-left: variables.$m-lg;
-            color: variables.$text-light;
-        }
-
-        .groupItemContainer {
-            display: flex;
-            padding-left: variables.$m-lg;
-            padding-right: variables.$m-lg;
-            flex-wrap: wrap;
-            width: 100%;
-        }
+    .groupContainerHeader {
+      background: rgb(38, 70, 83);
+      background: linear-gradient(
+        292deg,
+        rgba(38, 70, 83, 1) 0%,
+        rgba(38, 83, 73, 1) 67%,
+        rgba(42, 157, 143, 1) 100%
+      );
+      opacity: 0.8;
+      font-size: variables.$text-lg;
+      padding-left: variables.$m-lg;
+      color: variables.$text-light;
+      position: sticky;
+      top: 0;
+      z-index: 9;
     }
 
-    .eventCardWrapper {
-        width: 20%;
-        margin-left: variables.$m-md;
-        margin-right: variables.$m-md;
+    .groupItemContainer {
+      display: flex;
+      padding-left: variables.$m-lg;
+      padding-right: variables.$m-lg;
+      flex-wrap: wrap;
+      width: 100%;
     }
+  }
+
+  .eventCardWrapper {
+    width: 20%;
+    margin-left: variables.$m-md;
+    margin-right: variables.$m-md;
+  }
 }

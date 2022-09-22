@@ -4,7 +4,6 @@ import "./styles/style.scss";
 import "./styles/App.scss";
 import { APIEvent, Event } from "./util/types";
 import EventCard from "./components/EventCard";
-import { OutlinedInput } from "@mui/material";
 import { DateTime } from "luxon";
 
 function App() {
@@ -123,18 +122,20 @@ function App() {
       <div className="circle-lg"></div>
       <div className="circle-md"></div>
       <div className="headerBar">
-        <OutlinedInput
+        <input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
-        ></OutlinedInput>
+        ></input>
       </div>
       <div className="eventContainer">
         {Object.entries(eventGroups).map((entry) => {
           return (
             <div className="groupContainer">
-              <div className="groupContainerHeader">
-                <p>{entry[0]}</p>
-              </div>
+              {entry[1].filter((ev) => ev.visible).length > 0 && (
+                <div className="groupContainerHeader">
+                  <p>{entry[0]}</p>
+                </div>
+              )}
               <div className="groupItemContainer">
                 {entry[1]
                   .filter((ev) => ev.visible)

@@ -1,16 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
 //colors
 $background-color: #264653;
-$primary-color: #2A9D8F;
-$secondary-color: #E9C46A;
-$tertiary-color: #F4A261;
-$highlight-color: #E76F51;
-$light-color: #DEE2E6;
-$dark-color: #343A40;
+$primary-color: #2a9d8f;
+$secondary-color: #e9c46a;
+$tertiary-color: #f4a261;
+$highlight-color: #e76f51;
+$light-color: #dee2e6;
+$dark-color: #232629;
 $text-light: $light-color;
 $text-dark: $dark-color;
 
 //fonts
-$basic-font: Helvetica, sans-serif;
+$roboto-font: "Roboto", sans-serif;
+$dosis-font: "Dosis", sans-serif;
+$basic-font: $dosis-font;
 
 //sizes
 $m-xs: 4px;
@@ -21,5 +25,3 @@ $text-sm: 12px;
 $text-md: 16px;
 $text-lg: 20px;
 $text-xl: 24px;
-
-

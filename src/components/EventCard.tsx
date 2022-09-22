@@ -7,16 +7,22 @@ import { DateTime } from "luxon";
 function EventCard(props: { item: Event }) {
   return (
     <div className="eventCard">
-      <div className="titleContainer">
-        <p className="title">{props.item.title}</p>
-      </div>
       <img
         src={props.item.flyerFront ? props.item.flyerFront : unknownImg}
         alt={"flyerPhoto"}
       ></img>
-
+      <div className="titleContainer">
+        <p className="title">{props.item.title}</p>
+      </div>
       <div className="infoContainer">
-        <p className="location">{props.item.venue.name}</p>
+        <a
+          className="locationLink"
+          target={"_blank"}
+          href={props.item.venue.direction}
+          rel="noreferrer"
+        >
+          <p className="location">{props.item.venue.name}</p>
+        </a>
         {props.item.startTime.isValid && (
           <p>
             {props.item.startTime
