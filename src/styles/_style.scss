@@ -18,6 +18,10 @@ input {
   padding-left: variables.$m-md;
   z-index: 11;
 
+  @media screen and (max-width: variables.$small) {
+    width: 200px;
+  }
+
   &:focus {
     outline: 2px solid variables.$primary-color;
   }

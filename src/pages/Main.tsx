@@ -12,16 +12,16 @@ function Main(props: {
       {Object.entries(props.eventGroups).map((entry) => {
         return (
           <div key={entry[0]} className="mainGroupContainer">
-            {entry[1].filter((ev) => ev.visible).length > 0 &&
-              entry[1].filter((ev) => !ev.selected).length > 0 && (
-                <div className="mainGroupContainerHeader">
-                  <p>
-                    {DateTime.fromFormat(entry[0], "dd.MM.yyyy").isValid
-                      ? entry[0]
-                      : "Datum unbekannt"}
-                  </p>
-                </div>
-              )}
+            {entry[1].filter((ev) => ev.visible).filter((ev) => !ev.selected)
+              .length > 0 && (
+              <div className="mainGroupContainerHeader">
+                <p>
+                  {DateTime.fromFormat(entry[0], "dd.MM.yyyy").isValid
+                    ? entry[0]
+                    : "Datum unbekannt"}
+                </p>
+              </div>
+            )}
             <div className="mainGroupItemContainer">
               {entry[1]
                 .filter((ev) => ev.visible)

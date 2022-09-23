@@ -28,10 +28,29 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+    @media screen and (max-width: variables.$small) {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      padding: 0;
+    }
+
     .eventCardWrapper {
       width: 20%;
       margin-left: variables.$m-md;
       margin-right: variables.$m-md;
+
+      @media screen and (max-width: variables.$large) {
+        width: 40%;
+        margin-left: variables.$m-md;
+        margin-right: variables.$m-md;
+      }
+
+      @media screen and (max-width: variables.$small) {
+        width: 80%;
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
   }
 }
@@ -58,6 +77,13 @@
       position: absolute;
       left: 15%;
       top: 10%;
+
+      @media screen and (max-width: variables.$small) {
+        top: 15%;
+        left: 20%;
+        height: 60em;
+        width: 60em;
+      }
     }
 
     .circle-md {
@@ -68,6 +94,10 @@
       position: absolute;
       left: 50%;
       top: 10%;
+
+      @media screen and (max-width: variables.$small) {
+        display: none;
+      }
     }
 
     .noDataTextWrapper {
@@ -86,6 +116,10 @@
       .noDataText {
         color: variables.$text-light;
         font-size: variables.$text-xl;
+
+        @media screen and (max-width: variables.$small) {
+          text-align: center;
+        }
       }
     }
   }
