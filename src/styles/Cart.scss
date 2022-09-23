@@ -18,8 +18,6 @@
     font-size: variables.$text-lg;
     padding-left: variables.$m-lg;
     color: variables.$text-light;
-    position: sticky;
-    top: 0;
     z-index: 13;
   }
 
@@ -34,6 +32,61 @@
       width: 20%;
       margin-left: variables.$m-md;
       margin-right: variables.$m-md;
+    }
+  }
+}
+.noData {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .noDataContainer {
+    position: relative;
+    width: 50%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle-lg {
+      background: variables.$primary-color;
+      clip-path: circle(50%);
+      height: 40em;
+      width: 40em;
+      position: absolute;
+      left: 15%;
+      top: 10%;
+    }
+
+    .circle-md {
+      background: variables.$primary-color;
+      clip-path: circle(50%);
+      height: 30em;
+      width: 30em;
+      position: absolute;
+      left: 50%;
+      top: 10%;
+    }
+
+    .noDataTextWrapper {
+      width: 400px;
+      z-index: 10;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .noDataIcon {
+        color: variables.$text-light;
+        font-size: 100px;
+      }
+
+      .noDataText {
+        color: variables.$text-light;
+        font-size: variables.$text-xl;
+      }
     }
   }
 }

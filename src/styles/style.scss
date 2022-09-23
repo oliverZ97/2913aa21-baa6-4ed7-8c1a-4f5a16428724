@@ -1,4 +1,4 @@
-@use 'variables';
+@use "variables";
 
 body {
   background-color: variables.$background-color;
@@ -6,4 +6,18 @@ body {
   font-size: variables.$text-sm;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+input {
+  width: 300px;
+  border: 1px solid variables.$light-color;
+  border-radius: variables.$m-lg;
+  height: 30px;
+  background-color: variables.$light-color;
+  color: variables.$text-dark;
+  padding-left: variables.$m-md;
+
+  &:focus {
+    outline: 2px solid variables.$primary-color;
+  }
 }

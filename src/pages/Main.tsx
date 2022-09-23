@@ -11,7 +11,7 @@ function Main(props: {
     <div className="mainContainer">
       {Object.entries(props.eventGroups).map((entry) => {
         return (
-          <div className="mainGroupContainer">
+          <div key={entry[0]} className="mainGroupContainer">
             {entry[1].filter((ev) => ev.visible).length > 0 &&
               entry[1].filter((ev) => !ev.selected).length > 0 && (
                 <div className="mainGroupContainerHeader">

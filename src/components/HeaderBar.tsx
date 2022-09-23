@@ -21,6 +21,7 @@ function HeaderBar(props: {
         <input
           value={props.searchQuery}
           onChange={(e) => props.setSearchQuery(e.target.value.toLowerCase())}
+          placeholder={"Suche..."}
         ></input>
       )}
       <div className="cartHeaderContainer">
