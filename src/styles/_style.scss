@@ -16,6 +16,7 @@ input {
   background-color: variables.$light-color;
   color: variables.$text-dark;
   padding-left: variables.$m-md;
+  z-index: 11;
 
   &:focus {
     outline: 2px solid variables.$primary-color;

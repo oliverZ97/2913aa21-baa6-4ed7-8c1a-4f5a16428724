@@ -15,13 +15,13 @@ function EventCard(props: {
   addToCart?: (item: Event) => void;
   removeFromCart?: (item: Event) => void;
 }) {
-  const addToCart = (item: Event) => {
+  const addToCart = (item: Event): void => {
     if (props.addToCart) {
       props.addToCart(item);
     }
   };
 
-  const removeFromCart = (item: Event) => {
+  const removeFromCart = (item: Event): void => {
     if (props.removeFromCart) {
       props.removeFromCart(item);
     }
@@ -66,15 +66,15 @@ function EventCard(props: {
             )}
           </div>
         </div>
-        <div className="plusIconContainer">
+        <div className="iconContainer">
           {props.item.selected ? (
             <FaMinusCircle
-              className="plusIcon"
+              className="icon"
               onClick={() => removeFromCart(props.item)}
             ></FaMinusCircle>
           ) : (
             <FaPlusCircle
-              className="plusIcon"
+              className="icon"
               onClick={() => addToCart(props.item)}
             ></FaPlusCircle>
           )}

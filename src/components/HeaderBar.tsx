@@ -1,5 +1,6 @@
 import { Event } from "../util/types";
 import { FaShoppingCart, FaArrowLeft } from "react-icons/fa";
+import "../styles/HeaderBar.scss";
 
 function HeaderBar(props: {
   cart: Event[];

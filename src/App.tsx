@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import "./styles/style.scss";
+import "./styles/_style.scss";
 import "./styles/App.scss";
 import { APIEvent, Event } from "./util/types";
 import { DateTime } from "luxon";
@@ -28,7 +28,7 @@ function App() {
     filterEventsBySearchQuery();
   }, [searchQuery]);
 
-  const getEvents = () => {
+  const getEvents = (): void => {
     fetch("https://tlv-events-app.herokuapp.com/events/uk/london")
       .then((response) => response.json())
       .then((data) => {
@@ -60,11 +60,11 @@ function App() {
     return data.sort(sortDateTime);
   };
 
-  const sortDateTime = (a: Event, b: Event) => {
+  const sortDateTime = (a: Event, b: Event): number => {
     return a.startTime.toMillis() - b.startTime.toMillis();
   };
 
-  const groupEventsByDate = () => {
+  const groupEventsByDate = (): void => {
     let newEventGroups: Record<string, Event[]> = {};
     for (let i = 0; i < eventData.length; i++) {
       let dateKey = eventData[i].startTime.toLocaleString(DateTime.DATE_SHORT);
@@ -83,7 +83,7 @@ function App() {
     setEventGroups(newEventGroups);
   };
 
-  const filterEventsBySearchQuery = () => {
+  const filterEventsBySearchQuery = (): void => {
     setEventData(
       eventData.map((eventItem) => {
         eventItem.visible = true;
@@ -136,7 +136,7 @@ function App() {
     return visibleFlag;
   };
 
-  const addItemToCart = (item: Event) => {
+  const addItemToCart = (item: Event): void => {
     setCart([...cart, item]);
     const data = eventData;
     const index = data.findIndex((ev) => ev._id === item._id);
@@ -144,7 +144,7 @@ function App() {
     setEventData(data);
   };
 
-  const removeItemFromCart = (item: Event) => {
+  const removeItemFromCart = (item: Event): void => {
     setCart(cart.filter((ev) => ev._id !== item._id));
     const data = eventData;
     const index = data.findIndex((ev) => ev._id === item._id);
