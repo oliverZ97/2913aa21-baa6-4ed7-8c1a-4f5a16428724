@@ -3,11 +3,28 @@ import { Event } from "../util/types";
 import "../styles/EventCard.scss";
 import unknownImg from "../unknown.jpg";
 import { DateTime } from "luxon";
-import { FaMapMarkerAlt, FaRegClock, FaPlusCircle } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaRegClock,
+  FaPlusCircle,
+  FaMinusCircle,
+} from "react-icons/fa";
 
-function EventCard(props: { item: Event; addToCart: (item: Event) => void }) {
+function EventCard(props: {
+  item: Event;
+  addToCart?: (item: Event) => void;
+  removeFromCart?: (item: Event) => void;
+}) {
   const addToCart = (item: Event) => {
-    props.addToCart(item);
+    if (props.addToCart) {
+      props.addToCart(item);
+    }
+  };
+
+  const removeFromCart = (item: Event) => {
+    if (props.removeFromCart) {
+      props.removeFromCart(item);
+    }
   };
 
   return (
@@ -50,10 +67,17 @@ function EventCard(props: { item: Event; addToCart: (item: Event) => void }) {
           </div>
         </div>
         <div className="plusIconContainer">
-          <FaPlusCircle
-            className="plusIcon"
-            onClick={() => addToCart(props.item)}
-          ></FaPlusCircle>
+          {props.item.selected ? (
+            <FaMinusCircle
+              className="plusIcon"
+              onClick={() => removeFromCart(props.item)}
+            ></FaMinusCircle>
+          ) : (
+            <FaPlusCircle
+              className="plusIcon"
+              onClick={() => addToCart(props.item)}
+            ></FaPlusCircle>
+          )}
         </div>
       </div>
     </div>

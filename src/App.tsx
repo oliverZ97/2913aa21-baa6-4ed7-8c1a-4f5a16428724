@@ -3,15 +3,17 @@ import React, { useEffect, useState } from "react";
 import "./styles/style.scss";
 import "./styles/App.scss";
 import { APIEvent, Event } from "./util/types";
-import EventCard from "./components/EventCard";
 import { DateTime } from "luxon";
-import { FaShoppingCart } from "react-icons/fa";
+import Main from "./pages/Main";
+import Cart from "./pages/Cart";
+import HeaderBar from "./components/HeaderBar";
 
 function App() {
   const [eventData, setEventData] = useState<Event[]>([]);
   const [eventGroups, setEventGroups] = useState<Record<string, Event[]>>({});
   const [searchQuery, setSearchQuery] = useState("");
   const [cart, setCart] = useState<Event[]>([]);
+  const [showCart, setShowCart] = useState(false);
   const filterKeys = ["title", "artists+name", "venue+name"];
 
   useEffect(() => {
@@ -72,6 +74,12 @@ function App() {
         newEventGroups[dateKey] = [eventData[i]];
       }
     }
+    newEventGroups = Object.keys(newEventGroups)
+      .sort()
+      .reduce((obj: Record<string, Event[]>, key: string) => {
+        obj[key] = newEventGroups[key];
+        return obj;
+      }, {});
     setEventGroups(newEventGroups);
   };
 
@@ -136,49 +144,35 @@ function App() {
     setEventData(data);
   };
 
+  const removeItemFromCart = (item: Event) => {
+    setCart(cart.filter((ev) => ev._id !== item._id));
+    const data = eventData;
+    const index = data.findIndex((ev) => ev._id === item._id);
+    data[index].selected = false;
+    setEventData(data);
+  };
+
   return (
     <div>
-      <div className="circle-lg"></div>
-      <div className="circle-md"></div>
-      <div className="headerBar">
-        <input
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
-        ></input>
-        <div className="cartContainer">
-          <FaShoppingCart className="cartIcon"></FaShoppingCart>
-          <div className="cartBadge">{cart.length}</div>
-        </div>
-      </div>
-      <div className="eventContainer">
-        {Object.entries(eventGroups).map((entry) => {
-          return (
-            <div className="groupContainer">
-              {entry[1].filter((ev) => ev.visible).length > 0 &&
-                entry[1].filter((ev) => !ev.selected).length > 0 && (
-                  <div className="groupContainerHeader">
-                    <p>{entry[0]}</p>
-                  </div>
-                )}
-              <div className="groupItemContainer">
-                {entry[1]
-                  .filter((ev) => ev.visible)
-                  .filter((ev) => !ev.selected)
-                  .map((ev) => {
-                    return (
-                      <div className="eventCardWrapper">
-                        <EventCard
-                          addToCart={(item: Event) => addItemToCart(item)}
-                          key={ev._id}
-                          item={ev}
-                        />
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
-          );
-        })}
+      <HeaderBar
+        cart={cart}
+        showCart={showCart}
+        searchQuery={searchQuery}
+        setShowCart={(state) => setShowCart(state)}
+        setSearchQuery={(query) => setSearchQuery(query)}
+      ></HeaderBar>
+      <div className="content">
+        {showCart ? (
+          <Cart
+            cart={cart}
+            removeFromCart={(item) => removeItemFromCart(item)}
+          ></Cart>
+        ) : (
+          <Main
+            eventGroups={eventGroups}
+            addToCart={(item) => addItemToCart(item)}
+          ></Main>
+        )}
       </div>
     </div>
   );
