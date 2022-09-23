@@ -54,4 +54,5 @@ export type Event = {
   title: string;
   venue: Venue;
   visible: boolean;
+  selected: boolean;
 };

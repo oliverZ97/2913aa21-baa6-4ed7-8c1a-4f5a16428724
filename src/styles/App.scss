@@ -67,4 +67,32 @@
   background-color: variables.$background-color;
   border-bottom: 4px solid variables.$primary-color;
   padding: variables.$m-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .cartContainer {
+    z-index: 11;
+    position: relative;
+
+    .cartIcon {
+      font-size: 25px;
+      color: variables.$background-color;
+      cursor: pointer;
+    }
+
+    .cartBadge {
+      border-radius: 50px;
+      width: 15px;
+      height: 15px;
+      background-color: variables.$background-color;
+      color: variables.$text-light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      right: -8px;
+    }
+  }
 }
