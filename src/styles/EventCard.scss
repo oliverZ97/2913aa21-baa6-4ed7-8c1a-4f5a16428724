@@ -29,7 +29,7 @@
     padding-bottom: variables.$m-md;
     border-top-left-radius: variables.$m-sm;
     border-top-right-radius: variables.$m-sm;
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.34);
 
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.7px);
@@ -66,7 +66,7 @@
     justify-content: space-between;
 
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.34);
     border-bottom-left-radius: variables.$m-sm;
     border-bottom-right-radius: variables.$m-sm;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

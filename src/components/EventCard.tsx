@@ -31,7 +31,7 @@ function EventCard(props: {
     <div className="eventCard">
       <img
         src={props.item.flyerFront ? props.item.flyerFront : unknownImg}
-        alt={"flyerPhoto"}
+        alt={"Plakat von " + props.item.title}
       ></img>
       <div className="titleContainer">
         <p className="title">{props.item.title}</p>
