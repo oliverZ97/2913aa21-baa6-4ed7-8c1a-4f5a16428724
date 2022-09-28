@@ -28,7 +28,7 @@ function Main(props: {
                 .filter((ev) => !ev.selected)
                 .map((ev) => {
                   return (
-                    <div className="eventCardWrapper">
+                    <div key={ev._id} className="eventCardWrapper">
                       <EventCard
                         addToCart={(item: Event) => props.addToCart(item)}
                         key={ev._id}
